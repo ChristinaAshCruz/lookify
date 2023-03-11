@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+body {
+	margin: 40px;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 400;
+}
+
+h1{
+	font-family: 'Fugaz One', cursive;
+}
+.welcome-header {
+	text-align: center;
+	position: fixed;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%, -50%);
+	
+}
+
+.card {
+	border: 2px solid black;
+}
+
+#new-song-form {
+	margin:0px  100px;
+}
+label {
+	font-size: 14pt;
+}

@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -33,6 +34,7 @@ public class Song {
 	private String artist;
 	@NotNull
 	@Min(value=1)
+	@Max(value=10)
 	private Integer rating;
 	
 	@Column(updatable=false)

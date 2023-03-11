@@ -10,4 +10,25 @@ public class HomeController {
 	public String index() {
 		return "index.jsp";
 	}
+	
+	// song table jsp
+	@GetMapping("/dashboard")
+	public String dashboard() {
+		return "dashboard.jsp";
+	}
+	
+	// add song jsp
+	@GetMapping("/song/new")
+	public String addSong() {
+		return "addSong.jsp";
+	}
+	
+	// song details jsp
+//	@GetMapping("/song/{id}")
+	//temp route
+	@GetMapping("/song/view")
+	public String viewSong() {
+		return "viewSong.jsp";
+	}
+	
 }
