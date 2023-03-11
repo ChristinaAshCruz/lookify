@@ -37,40 +37,57 @@ pageEncoding="UTF-8"%>
       <a href="/dashboard" class="btn btn-warning">Go back to home</a>
     </div>
     <hr class="mb-4" />
-    <div class="card p-4 mb-3" id="new-song-form">
-      <form action="#">
+    <div class="card p-4 mb-3" id="sub-page-card">
+      <form:form action="/song/new" method="POST" modelAttribute="newSong">
         <div class="mb-3 row">
           <div class="col-2">
-            <label for="expenseName" class="form-label" path="expenseName"
-              >Song Name:</label
+            <form:label for="title" class="form-label" path="title"
+              >Song Name:</form:label
             >
           </div>
           <div class="col-10">
-            <input type="text" class="form-control" name="" path="" />
+            <form:input
+              name="title"
+              type="text"
+              class="form-control"
+              path="title"
+            />
           </div>
-          <!-- <form:errors path="expenseName"></form:errors> -->
+          <form:errors path="title"></form:errors>
         </div>
         <div class="mb-3 row">
           <div class="col-2">
-            <label for="expenseName" class="form-label" path="expenseName"
-              >Artist:</label
+            <form:label for="artist" class="form-label" path="artist"
+              >Artist:</form:label
             >
           </div>
           <div class="col-10">
-            <input type="text" class="form-control" name="" path="" />
+            <input
+              type="text"
+              class="form-control"
+              path="artist"
+              name="artist"
+            />
           </div>
-          <!-- <form:errors path="expenseName"></form:errors> -->
+          <form:errors path="artist"></form:errors>
         </div>
         <div class="mb-3 row">
           <div class="col-2">
-            <label for="expenseName" class="form-label" path="expenseName"
-              >Rating:</label
+            <form:label for="rating" class="form-label" path="rating"
+              >Rating:</form:label
             >
           </div>
           <div class="col-10 mb-3">
-            <input type="number" class="form-control" name="" path="" />
+            <form:input
+              type="number"
+              class="form-control"
+              path="rating"
+              min="0"
+              max="10"
+              name="rating"
+            />
           </div>
-          <!-- <form:errors path="expenseName"></form:errors> -->
+          <form:errors path="rating"></form:errors>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
           <input
@@ -79,7 +96,7 @@ pageEncoding="UTF-8"%>
             class="btn btn-warning col-2 me-md-2"
           />
         </div>
-      </form>
+      </form:form>
     </div>
   </body>
 </html>

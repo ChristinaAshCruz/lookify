@@ -12,7 +12,7 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>View Song</title>
+    <title>Search Results</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
     <!-- change to match your file/naming structure -->
@@ -33,23 +33,31 @@ pageEncoding="UTF-8"%>
       class="d-flex justify-content-between align-items-baseline"
       id="header-row"
     >
-      <h1>Song Details</h1>
+      <h1>Search Results: <c:out value="${searchTerm}"></c:out></h1>
       <a href="/dashboard" class="btn btn-warning">Go back to home</a>
     </div>
     <hr class="mb-4" />
-    <div class="card p-4 mb-3" id="sub-page-card">
-      <div class="row g-0 align-items-end mb-3">
-        <h3 class="col-3">Song name:</h3>
-        <h5 class="col-6"><c:out value="${thisSong.title}"></c:out></h5>
-      </div>
-      <div class="row g-0 align-items-end mb-3">
-        <h3 class="col-3">Artist:</h3>
-        <h5 class="col-6"><c:out value="${thisSong.artist}"></c:out></h5>
-      </div>
-      <div class="row g-0 align-items-end mb-3">
-        <h3 class="col-3">Rating:</h3>
-        <h5 class="col-6"><c:out value="${thisSong.rating}"></c:out></h5>
-      </div>
+    <div class="card p-4 mb-3" id="table-card">
+      <table class="table" id="directory">
+        <thead>
+          <tr id="header-row">
+            <th scope="col">Name</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <c:forEach var="song" items="${songResults}">
+          <tr>
+            <td>
+              <a href="/song/view"><c:out value="${song.title}"></c:out></a>
+            </td>
+            <td><c:out value="${song.rating}"></c:out></td>
+            <td>
+              <a href="#" class="btn btn-warning me-0">Delete</a>
+            </td>
+          </tr>
+        </c:forEach>
+      </table>
     </div>
   </body>
 </html>

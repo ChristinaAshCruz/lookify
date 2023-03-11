@@ -34,24 +34,27 @@ pageEncoding="UTF-8"%>
     <div class="row">
       <div class="col-5">
         <a href="/song/new" class="btn btn-warning col-4 me-2">Add New Song</a>
-        <a href="#" class="btn btn-warning col-4">Top Songs</a>
+        <a href="/songs/top-ten" class="btn btn-warning col-4">Top Songs</a>
       </div>
       <div class="col-7">
-        <div class="input-group mb-3">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Search songs here..."
-            aria-describedby="button-addon2"
-          />
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="button-addon2"
-          >
-            Search
-          </button>
-        </div>
+        <form action="/search" method="POST">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Search by artist..."
+              aria-describedby="button-addon2"
+              name="artist"
+            />
+            <button
+              class="btn btn-outline-secondary"
+              type="submit"
+              id="button-addon2"
+            >
+              Search
+            </button>
+          </div>
+        </form>
       </div>
     </div>
     <div class="card p-4 mb-3" id="table-card">
@@ -64,13 +67,14 @@ pageEncoding="UTF-8"%>
           </tr>
         </thead>
         <tr>
-          <td><a href="/song/view">Dynamite</a></td>
-          <td>10</td>
-          <td>
-            <a href="#" class="btn btn-warning me-2">Edit</a>
-            <a href="#" class="btn btn-warning me-0">Delete</a>
-          </td>
-        </tr>
+            <c:forEach var="song" items="${allSongs}">
+                <td><a href="/song/${song.id}/view"><c:out value="${song.title}" /></a></td>
+                <td><c:out value="${song.rating}" /></td>
+                <td>
+                    <a href="/song/${song.id}/delete" class="btn btn-warning me-0">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
       </table>
     </div>
   </body>

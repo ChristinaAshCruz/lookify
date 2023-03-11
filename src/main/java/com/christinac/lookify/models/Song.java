@@ -30,7 +30,7 @@ public class Song {
 	@Size(min=4, max=100)
 	private String title;
 	@NotNull
-	@Size(min=4, max=100)
+	@Size(min=2, max=100)
 	private String artist;
 	@NotNull
 	@Min(value=1)
